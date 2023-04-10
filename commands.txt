@@ -1,6 +1,10 @@
-python -m pip install --upgrade pip
+render specific commands
+
+python >=3.7
+
+python -m pip install --upgrade pip &&
 pip insatll -r requirement.txt
 
 //build command
 gunicorn WSGI_APPLICATION = 'todo_project.wsgi.application' from setting
-gunicorn todo_project.wsgi.application
+gunicorn todo_project.wsgi:application
