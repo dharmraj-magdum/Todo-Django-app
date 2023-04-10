@@ -1,0 +1,51 @@
+{% extends "todo/base.html"%}
+{% load custom_filter %}
+{% block content %}
+
+{% if todos|length == 0 %}
+
+<div class="p-4">
+    <div class="alert alert-info text-center">
+        <br>
+        {% if not request.user.is_authenticated %}
+        <p class="" style="font-size: 30px;">Login first to see your Todos..</p>
+        {% else %}
+        <br>
+        <p class="" style="font-size: 30px;">No Todos yet add one</p>
+        <a class="nav-item nav-link" href="{% url 'add-todo' %}">Add Todo</a>
+        {% endif%}
+    </div>
+    <br>
+    <br>
+</div>
+
+{%else%}
+<!-- <legend class="border-bottom text-centre mb-2">To dos</legend> -->
+{% for todo in todos %}
+<div class="card m-1 col-sm-12" style="width :21rem;">
+    <div class="card-body py-2">
+        <h5 class="card-title">{{todo.title}}</h5>
+        <h6 class="card-subtitle my-2 text-muted">{{todo.priority | priority_text}} Priority</h6>
+        <h6 class="card-subtitle my-2 text-muted">
+            {% if todo.status == 'C'%}
+            Completed
+            {%else%}
+            Pending
+            {% endif %}
+        </h6>
+        <form method="POST" action="{% url 'delete-todo' todo.id %}" class="">
+            {% csrf_token %}
+            {% if todo.status == 'p'%}
+            <a href="{% url 'change-status' todo.id 'C' %}" class="btn btn-outline-success btn-sm "
+                title="Mark Completed">Mark
+                Done</a>
+            {% endif %}
+            <!-- <a href="{% url 'delete-todo' todo.id %}" title="Delete" class="">🗑️</a> -->
+            <button class="btn btn-outline-danger btn-sm float-right" type="submit" value="">Delete</button>
+        </form>
+    </div>
+</div>
+{%endfor%}
+{%endif%}
+
+{% endblock content %}
