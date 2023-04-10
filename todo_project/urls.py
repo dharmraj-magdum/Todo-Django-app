@@ -13,8 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static  # to import static in deployment
 from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
@@ -44,8 +44,8 @@ urlpatterns = [
          name="password_reset_complete"),
     path('profile/', users_views.profile, name="profile"),
 ]
-
-urlpatterns += staticfiles_urlpatterns()
+# to import static in deployment
+urlpatterns = + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # serve media root folder
 # this done by adding media_url path to project urls to give access to go these folders
 # if settings.DEBUG:
