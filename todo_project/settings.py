@@ -135,9 +135,10 @@ USE_TZ = True
 
 # serve static files from server
 # set location of static files
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static/"),
-)
+#developement
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static/"),
+# )
 STATIC_ROOT = "static/"
 # this way to access it inside project
 STATIC_URL = 'static/'
