@@ -20,7 +20,7 @@ class TodoListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = Todo.objects.filter(
             user=self.request.user.id).order_by('-priority')
-        return {"todos": context}
+        return {"todos": context, "title": "home"}
 
 
 class TodoCreateView(LoginRequiredMixin, CreateView):

@@ -3,7 +3,7 @@ render specific commands
 python >=3.7
 
 python -m pip install --upgrade pip &&
-pip insatll -r requirement.txt
+pip install -r requirements.txt && python manage.py collectstatic
 
 //build command
 gunicorn WSGI_APPLICATION = 'todo_project.wsgi.application' from setting
