@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as users_views
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # base url for each app in our project
 urlpatterns = [
@@ -45,6 +45,7 @@ urlpatterns = [
     path('profile/', users_views.profile, name="profile"),
 ]
 
+urlpatterns += staticfiles_urlpatterns()
 # serve media root folder
 # this done by adding media_url path to project urls to give access to go these folders
 # if settings.DEBUG:

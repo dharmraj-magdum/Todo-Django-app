@@ -135,13 +135,14 @@ USE_TZ = True
 
 # serve static files from server
 # set location of static files
-#developement
+# developement
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, "static/"),
 # )
 STATIC_ROOT = "static/"
 # this way to access it inside project
 STATIC_URL = 'static/'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # upload and access of files within project
 # this will say django to store upload pics to mentioned  folder
