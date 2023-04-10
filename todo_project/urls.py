@@ -45,7 +45,7 @@ urlpatterns = [
     path('profile/', users_views.profile, name="profile"),
 ]
 # to import static in deployment
-urlpatterns = + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # serve media root folder
 # this done by adding media_url path to project urls to give access to go these folders
 # if settings.DEBUG:
