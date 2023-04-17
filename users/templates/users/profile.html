@@ -1,7 +1,10 @@
 {% extends "todo/base.html" %}
 {% load crispy_forms_tags %}
+{% block title %}
+| Profile
+{% endblock title %}
 {% block content %}
-<div class="content-section">
+<div class="content-section col-sm-6 mx-auto">
     <div class="media">
         <div class="media-body">
             <h2 class="account-heading">{{ user.username }}</h2>

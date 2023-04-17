@@ -1,7 +1,10 @@
 {% extends "todo/base.html"%}
-{% block content %}
 {% load crispy_forms_tags %}
-<div class="mx-auto col-sm-10">
+{% block title %}
+| Add Todo
+{% endblock title %}
+{% block content %}
+<div class="mx-auto col-sm-7">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group mx-auto">

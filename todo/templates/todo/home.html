@@ -1,5 +1,8 @@
 {% extends "todo/base.html"%}
 {% load custom_filter %}
+{% block title %}
+| Home
+{% endblock title %}
 {% block content %}
 
 {% if todos|length == 0 %}
@@ -22,7 +25,7 @@
 {%else%}
 <!-- <legend class="border-bottom text-centre mb-2">To dos</legend> -->
 {% for todo in todos %}
-<div class="card m-1 col-sm-12" style="width :21rem;">
+<div class="card m-1 col-sm-12 col-lg-8 mx-auto" style="width :21rem;">
     <div class="card-body py-2">
         <h5 class="card-title">{{todo.title}}</h5>
         <h6 class="card-subtitle my-2 text-muted">{{todo.priority | priority_text}} Priority</h6>

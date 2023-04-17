@@ -148,6 +148,7 @@ USE_TZ = True
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, "static/"),
 # )
+# for live
 STATIC_ROOT = "static/"
 # this way to access it inside project
 STATIC_URL = 'static/'
